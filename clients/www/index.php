@@ -5,13 +5,13 @@
     </head>
     <body>
         <?php include('templates.php'); ?>
-        <div data-role="page" class="container" id="index">
+        <div data-role="page" class="" id="index">
             <script type="text/javascript">
                 $('#index').on('pageshow', function(e, ui){
                     appendLocations();
                 });
             </script>
-            <div data-role="content" class="ui-content page-contents">
+            <div data-role="content" class="ui-content page-contents container">
                 <div class="attrac-content">
                     <?php include('login-header.php'); ?>
                     <div class="select-elements">
@@ -21,7 +21,7 @@
                             </select>
                         </div>
                         <div class="institution-dd">
-                            <select name="" id="institution-select-menu" data-corners="false" class="institution-drop-down" data-native-menu="false" disabled>
+                            <select name="" id="institution-select-menu" data-corners="false" class="institution-drop-down" disabled> <!--data-native-menu="false" -->
                                 <option value="" selected>Institute</option>
                             </select>
                         </div>

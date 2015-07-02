@@ -2,13 +2,12 @@
 @import "variables.less";
 @import "mixins.less";
 @import "webfont.less";
-@import "font-awesome.min.less";
+@import "bootstrap.less";
+
 //Common Style//
 body {
-	background-color: #fff!important;
-	background-image: none!important;
 	text-transform: none!important;
-	text-shadow: 0px!important;
+	text-shadow: none!important;
 	width: 100%;
 	height: 100%;
 }
@@ -21,16 +20,16 @@ body {
 .wrapper{
 	width: 100%;
 }
-.container {
-	width: 100%;
-	height: 100%;
-}
+// .container {
+// 	width: 100%;
+// 	height: 100%;
+// }
 .cursor {
 	cursor: pointer;
 }
 .ui-bar-a {
 	border: none;
-	background: #ffffff;
+	background: @white;
 	text-shadow: none;
 	font-weight: 100;
 }
@@ -55,7 +54,7 @@ body {
 	height: 0; 
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-top: 10px solid #ffffff;
+	border-top: 10px solid @white;
 }
 
 .arrow-right {
@@ -63,7 +62,7 @@ body {
 	height: 0; 
 	border-top: 60px solid transparent;
 	border-bottom: 60px solid transparent;
-	border-left: 60px solid #ffffff;
+	border-left: 60px solid @white;
 }
 
 .arrow-left {
@@ -71,7 +70,7 @@ body {
 	height: 0; 
 	border-top: 10px solid transparent;
 	border-bottom: 10px solid transparent; 
-	border-right:10px solid #ffffff; 
+	border-right:10px solid @white; 
 }
 .ui-page-theme-a .ui-foucs{
 	background: none!important;
@@ -124,6 +123,9 @@ body {
     border: none !important;
     box-shadow: none !important;
 }
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+	text-shadow: none!important;
+}
 //location selectbox border between option and down icon
 .select-elements .ui-btn-icon-right:after {
 	border-radius: 0px;
@@ -132,7 +134,7 @@ body {
 	height: 0; 
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-top: 10px solid #ffffff;
+	border-top: 10px solid @white;
 	top: 70%;
 }
 
@@ -140,7 +142,7 @@ body {
 	padding-top: 0px;
 	padding-bottom: 0px;
 	span {
-	  	border-right: 1px solid #ffffff;
+	  	border-right: 1px solid @white;
 	  	padding-top: 7px;
 	  	padding-bottom: 7px;
 	}
@@ -150,23 +152,59 @@ body {
 	padding-top: 0px;
 	padding-bottom: 0px;
 	span {
-	  	border-right: 1px solid #ffffff;
+	  	border-right: 1px solid @white;
 	  	padding-top: 7px;
 	  	padding-bottom: 7px;
 	}
 }
 
+.f-right{
+	float: right;
+}
+.f-left{
+	float: left;
+}
+.t-center{
+	text-align: center;
+	margin: 0 auto;
+}
+.hide{
+	display: none;
+}
+.show{
+	display: block;
+}
+.inline-block{
+	display: inline-block;
+}
+.bars{
+	width: 24px;
+	height: 18px;
+	display: block;
+}
+
+// .nav-bar{
+// 	position: fixed;
+//     left: 0;
+//     right: 0;
+//     z-index: 22222;
+// 	height: 45px;
+// 	padding: 5px 20px 6px 20px;
+// 	background-color:@white !important;
+// 	border-top: 1px solid @grayLighter !important;
+// 	border-bottom: 1px solid @grayLighter !important;
+// }
+
 .page-contents {
-	margin-top: 3%;
-	margin-left: 3%;
-	margin-right: 3%;
 	.attrac-content {
-		background-color: #ffffff;
+		background-color: @white;
 		.attrac-header-logo {
 			text-align: center;
-			background-color: #29abe2;
+			background-color: @appCommonColor;
 			img{
 				padding: 5px 0px;
+				width: 130px;
+				height: 45px;
 			}
 		}
 		//location and institute select page
@@ -174,22 +212,22 @@ body {
 			margin: 0px;
 			padding: 40px 15px;
 			text-align: center;
-			color: #ffffff!important;
+			color: @white!important;
 			.location-dd {
-				background-color: #29abe2;
+				background-color: @appCommonColor;
 				.location-drop-down {
 					outline: none;
 					width: 100%;
-					.font(18px,'Calibri',#ffffff,100);
+					.font(18px,'Titillium_Thin',@white,100);
 
 				}
 			}
 			.institution-dd {
-				background-color: #29abe2;
+				background-color: @appCommonColor;
 				.institution-drop-down {
 					outline: none;
 					width: 100%;
-					.font(18px,'Calibri',#ffffff,100);
+					.font(18px,'Titillium_Thin',@white,100);
 				}
 			}
 		}
@@ -199,34 +237,133 @@ body {
 			padding: 25px 15px;
 			text-align: center;
 			.login-btn-header {
-				.font(24px,'Calibri',#29abe2,100);
+				.font(24px,'Titillium_Thin',@appCommonColor,bold);
+				margin-top: 0px;
+				margin-bottom: 25px;
 			}
 			.user-login-opt-btn {
-				background-color: #29abe2;
-				.font(16px,'Calibri',#ffffff,100);
-				margin: 10px 15px;
+				background-color: @appCommonColor;
+				.font(16px,'Titillium_Thin',@white,100);
+				margin: 20px;
 				padding: 10px 0px;
 				cursor: pointer;
 			}
 			.login-input-box {
 				width: 210px;
 				margin: 10px auto;
-				border: 1px solid #29abe2;
-				.font(18px,'Calibri',#29abe2,100);
+				border: 1px solid @appCommonColor;
+				.font(18px,'Titillium_Thin',@appCommonColor,100);
 				padding-top: 0px;
 				padding-bottom: 0px;
 			}
 			.login-btn {
-				background-color: #29abe2;
-				.font(18px,'Calibri',#ffffff,100);
+				background-color: @appCommonColor;
+				.font(18px,'Titillium_Thin',@white,100);
 				margin: 25px auto;
 				margin-bottom: 0px;
-				padding: 10px 0px;
+				padding: 5px 0px;
 				cursor: pointer;
-				width: 100px;
+				width: 120px;
 			}
 		}
 	}
 }
 
+.user-page-contents {
+	position: fixed; 
+	top: 0; 
+	left: 0; 	
+	background-color: @white!important;
+	min-width: 100%;
+	min-height: 100%;
+	padding-top: 0px;
+	.common-header-bar {
+		position: fixed;
+	    left: 0;
+	    right: 0;
+	    z-index: 22222;
+		background-color: @commonHeader !important;
+		height: 55px;
+	}
+	.common-header-bar-content {
+		padding: 15px 10px;
+  		vertical-align: middle;
+		.header-menu-icon {
+			color: @white;
+			padding-right: 15px;
+			font-size: 24px;
+			border-radius: 0px;
+			-webkit-border-radius: 0px;
+			-moz-webkit-border-radius: 0px;
+			-ms-webkit-border-radius: 0px;
+			-o-webkit-border-radius: 0px;
+			webkit-border-radius: 0px;
+			cursor: pointer;
+			vertical-align: middle;
+		}
+		.header-institute-title {
+			.font(16px,'Titillium_Thin',@white,bold);
+			vertical-align: middle;
+		}
+		.header-menu-icons-group {
+			display: inline-block;
+			padding-right: 25px;
+			.envelope-icon{
+				color: @white;
+				font-size: 24px;
+				// font-weight: 100;			
+				border-radius: 0px;
+				-webkit-border-radius: 0px;
+				-moz-webkit-border-radius: 0px;
+				-ms-webkit-border-radius: 0px;
+				-o-webkit-border-radius: 0px;
+				webkit-border-radius: 0px;
+				cursor: pointer;
+				vertical-align: middle;
+			}
+			.user-icon{
+				color: @white;
+				font-size: 24px;
+				font-weight: 100;
+				padding-left: 15px;
+				border-radius: 0px;
+				-webkit-border-radius: 0px;
+				-moz-webkit-border-radius: 0px;
+				-ms-webkit-border-radius: 0px;
+				-o-webkit-border-radius: 0px;
+				webkit-border-radius: 0px;
+				cursor: pointer;
+				vertical-align: middle;
+			}
+		}
+	}
+	.page-body-contents {
+		padding-top: 60px;
+		padding-left: 5px;
+		padding-right: 5px;
+		.dashboard-grid-menu-lists {
+			.grid-menu-list {
+				.font(12px,'Titillium_Thin',@white,100);
+				cursor: pointer;
+				text-align: center;
+				padding: 0.5px;
+				.list-opt-text {
+					margin: 0px;
+					border-radius: 0px;
+					background-color: @dashboardBox;
+					vertical-align: middle;
+					padding: 55px 0px;
+				}
+			}
+		}
+	}
+}
 
+// .row-eq-height {
+//   display: -webkit-box;
+//   display: -webkit-flex;
+//   display: -ms-flexbox;
+//   display: flex;
+// }
+
+@import "font-awesome.less";

@@ -5,8 +5,8 @@
     </head>
     <body>
         <?php include('templates.php'); ?>
-        <div data-role="page" class="container" id="login-option">
-            <div data-role="content" class="ui-content page-contents">
+        <div data-role="page" class="" id="login-option">
+            <div data-role="content" class="ui-content page-contents container">
                 <div class="attrac-content">
                     <?php include('login-header.php'); ?>
                     <div class="user-login-options">

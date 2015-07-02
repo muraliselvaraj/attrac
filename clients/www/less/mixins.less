@@ -7,3 +7,11 @@
   color: @color;
   font-weight: @weight!important;
 }
+
+.size(@width; @height) {
+  width: @width;
+  height: @height;
+}
+.square(@size) {
+  .size(@size; @size);
+}
