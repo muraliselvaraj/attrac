@@ -1,0 +1,331 @@
+@import "variables.less";
+@import "mixins.less";
+.logged-user-page-body-contents {
+	background-color: @bodyColor!important;
+	padding: 0px;
+	//faculty upload attendance page styles
+	.faculty-upload-page-body-contents {
+		margin-top: 60px;
+		padding-left: 5px;
+		padding-right: 5px;
+		overflow: auto;
+		.faculty-upload-opt-box {
+			background-color: @white;
+			padding: 10px 8px;
+			border-bottom: 1px solid @userInnerColor;
+			.upload-opt-header {
+				.upload-bolt-icon {
+					color: @userInnerColor;
+					font-size: 16px;
+				}
+				.header-txt {
+					.font(16px,'Titillium_Thin',@userInnerColor,bold);
+				}
+			}
+			.upload-opt-body {
+				.upload-opt-select-group {
+					.font(16px,'Titillium_Thin',@userInnerColor,400);
+					.upload-opt-container-section {
+						width: 320px;
+						margin: 0 auto;
+						.upload-options-group-container{
+							.select-option-group {
+								.ui-btn-icon-right:after {
+									border-radius: 0px;
+									background: none;
+									width: 0; 
+									height: 0; 
+									border-left: 8px solid transparent;
+									border-right: 8px solid transparent;
+									border-top: 8px solid @userInnerColor;
+									top: 20px;
+									right: 4px;
+								}
+								.ui-select {
+									margin: 0px;
+									display: inline-block;
+									#faculty-class-select-button{
+										text-shadow: none;
+										border-bottom: 1px solid @userInnerColor!important;
+										padding: 0px;
+										top: 4px;
+									}					
+								}
+								.faculty-select-label {
+									padding-left: 0px;
+									padding-right: 0px;
+									margin-right: 15px;	
+								}
+								input[type="time"]::-webkit-clear-button {
+								    display: none;
+								}
+								input[type=time]::-webkit-inner-spin-button, input[type=time]::-webkit-outer-spin-button {
+								    -webkit-appearance: none;
+								    margin: 0;
+								}
+								.faculty-class-select-box-dd {
+									display: inline-block;
+									text-align: left;
+									width: 260px;
+									padding: 0px;
+									outline: none;
+								}
+								.ui-input-text {
+									width: 260px;
+									margin: 0px;
+									display: inline-block;
+								}
+								.input-group {
+									position: relative;
+									display: inline-block;
+									cursor: pointer;
+									.faculty-input-select-box-dd {
+										display: inline-block;
+										text-align: left;
+										width: 260px;
+										padding: 0px;
+										outline: none;
+										border-bottom: 1px solid @userInnerColor!important;
+									}
+									.arrow-down-pointer {
+										border-radius: 0px;
+										background: none;
+										width: 0; 
+										height: 0; 
+										border-left: 8px solid transparent;
+										border-right: 8px solid transparent;
+										border-top: 8px solid @userInnerColor;
+										top: 20px;
+										right: 2px;
+										position: absolute;
+									}
+								}
+							}
+							.faculty-datetime-select-box-dd {
+								margin: 18px 0px;
+							}
+							.upload-checkbox-circle {
+								margin: 15px 0px;
+								text-align: center;
+								.upload-checkbox-icon {
+									color: @userInnerColor;
+									font-size: 16px;
+									cursor: pointer;
+								}
+								.checkbox-txt {
+									.font(16px,'Titillium_Thin',@userInnerColor,bold);
+								}
+							}
+						}
+						.upload-opt-section-data-group {
+							.select-option-group {
+								.ui-btn-icon-right:after {
+									border-radius: 0px;
+									background: none;
+									width: 0; 
+									height: 0; 
+									border-left: 8px solid transparent;
+									border-right: 8px solid transparent;
+									border-top: 8px solid @userInnerColor;
+									top: 20px;
+									right: 4px;
+								}
+								.ui-select {
+									margin: 0px;
+									display: inline-block;
+									width: 250px;
+									#faculty-section-select-button{
+										text-shadow: none;
+										border-bottom: 1px solid @userInnerColor!important;
+										padding: 0px;
+										top: 4px;
+									}
+									#faculty-view-select-button{
+										text-shadow: none;
+										border-bottom: 1px solid @userInnerColor!important;
+										padding: 0px;
+										top: 4px;
+									}					
+								}
+								.faculty-select-label {
+									padding-left: 0px;
+									padding-right: 0px;
+									margin-right: 15px;	
+								}
+								.faculty-section-select-box-dd {
+									display: inline-block;
+									text-align: left;
+									width: 250px;
+									padding: 0px;
+									outline: none;
+								}
+								.ui-input-text {
+									width: 250px;
+									margin: 0px;
+									display: inline-block;
+								}
+								.input-group {
+									position: relative;
+									display: inline-block;
+									cursor: pointer;
+									.faculty-input-section-box {
+										display: inline-block;
+										text-align: left;
+										width: 250px;
+										padding: 0px;
+										outline: none;
+										// border-bottom: 1px solid @userInnerColor!important;
+										border: none;
+									}
+								}
+								.input-group-date-time {
+									position: relative;
+									display: inline-block;
+									cursor: pointer;
+									.ui-input-text {
+										width: 100px;
+										margin: 0px;
+										display: inline-block;
+									}
+									.faculty-input-section-box {
+										display: inline-block;
+										text-align: left;
+										width: 100px;
+										padding: 0px;
+										outline: none;
+										// border-bottom: 1px solid @userInnerColor!important;
+										border: none;
+									}
+								}
+							}
+						}
+					}
+
+				}
+			}
+		}
+		.student-attendance-details-container {
+			background-color: @white;
+			padding: 10px 8px;
+			border-bottom: 1px solid #cccccc;
+			padding-bottom: 20px;
+			.font(16px,'Titillium_Thin',@userInnerColor,bold);
+			.table-height-container {
+				// overflow-y: scroll;
+				// overflow-x: hidden;
+				// height: 300px;
+				// -webkit-overflow-scrolling: touch;
+				.attendance-upload-view-table {
+					width: 100%;
+					height: 200px;
+					.upload-view-attendance-header {
+						display: table;
+						width: 100%;
+						// table-layout: fixed;
+						th {
+							.font(16px,'Titillium_Thin',@black,900);
+							padding: 3px 0px;
+							padding-bottom: 10px;
+							&:first-child {
+								width: 20%;
+								text-align: center;
+							}
+							&:nth-child(2){
+								width: 55%;
+							}
+							&:last-child {
+								width: 25%;
+							}
+						}
+					}
+					.upload-view-attendance-body {
+						background: #f4f4f4;
+						overflow-y: auto;
+						// overflow-x: hidden;
+						height: 165px;
+						display: block;
+						-webkit-overflow-scrolling: touch;
+						tr {
+							display: table;
+							width: 100%;
+							table-layout: fixed;
+							td {
+								.font(16px,'Titillium_Thin',@black,300);
+								padding: 3px 0px;
+								.upload-checkbox-icon {
+									color: @userInnerColor;
+									font-size: 16px;
+									cursor: pointer;
+								}
+								&:first-child {
+									width: 20%;
+									text-align: center;
+								}
+								&:nth-child(2){
+									width: 55%;
+								}
+								&:last-child {
+									width: 25%;
+								}
+							}
+						}
+					}
+				}
+			}
+			.hours-select-opts {
+				text-align: center;
+				margin: 8px 0px;
+				.ui-btn-icon-right:after {
+					border-radius: 0px;
+					background: none;
+					width: 0; 
+					height: 0; 
+					border-left: 8px solid transparent;
+					border-right: 8px solid transparent;
+					border-top: 8px solid @userInnerColor;
+					top: 20px;
+					right: 4px;
+				}
+				.ui-select {
+					margin: 0px;
+					display: inline-block;
+					#faculty-hours-select-button{
+						text-shadow: none;
+						border-bottom: 1px solid #cccccc !important;
+						padding: 0px;
+						top: 4px;
+					}					
+				}
+				.faculty-hour-label {
+					padding-left: 0px;
+					padding-right: 0px;
+					margin-right: 15px;	
+				}
+				.faculty-hour-select-box-dd {
+					display: inline-block;
+					text-align: left;
+					width: 180px;
+					padding: 0px;
+					outline: none;
+				}
+			}
+		}
+		.upload-opt-btn-group {
+			background-color: @white;
+			padding: 10px 8px;
+			text-align: right;
+			.btn-opts {
+				margin-right: 5px;
+				.upload-cancel-btn {
+					.font(16px,'Titillium_Thin',@userInnerColor,bold);
+					cursor: pointer;
+					margin-right: 10px;
+				}
+				.upload-done-btn {
+					.font(16px,'Titillium_Thin',#0071bd,bold);
+					cursor: pointer;
+				}
+			}
+		}
+	}
+}

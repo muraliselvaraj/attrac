@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Attrac</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/vendor/underscore.js"></script>
+        <script src="js/vendor/jquery-1.11.3.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.mobile-1.4.5.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body>
+        <div data-role="page" class="" id="dashboard-page">
+            <div data-role="content" class="ui-content user-page-contents container-fluid">
+                <div class="common-header-bar">
+                   <div class="common-header-bar-content">
+                	    <!-- <i id="horizontal-bars" class="fa fa-bars fa-fw header-menu-icon"></i> -->
+                		<!-- <i id="cross-bars" class="fa fa-times fa-fw"></i> -->
+                      <!-- <div class="menu-bar-icon-group">
+                      	<span class="menu-bar-line"></span>
+                      	<span class="menu-bar-line"></span>
+                      	<span class="menu-bar-line"></span>
+                      </div> -->
+                        <a href="#left-menu-panel">
+                            <i id="horizontal-bars" class="fa fa-bars fa-fw header-menu-icon"></i>
+                        </a>
+                        <div data-role="panel" id="left-menu-panel" data-position="left" data-display="overlay">
+                            <div class="left-menu-panel-group">
+                                <div class="user-details-content" style="background: url(img/avatar1.png) no-repeat;background-size: 100%;">
+                                    <div class="back-cover-color"></div>
+                                    <div class="user-profile-info">
+                                        <div class="profile-pic">
+                                            <img src="img/avatar1.png" alt="">
+                                        </div>
+                                        <div class="profile-user-data">
+                                            <span class="logged-user-name">XXXXXXXXX X X</span>
+                                            <div class="panel-user-opt-box">
+                                                <span class="logged-user-institue">Institute Name Institute</span>
+                                                <span class="user-opt-arrow-down"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-various-opt-lists">
+                                    <div class="list-opt-container">
+                                        <ul class="list-options">
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-cog list-opt-icon"></i>
+                                                    <span class="list-opt-text">Manage Classes</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="dashboard.html" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-th list-opt-icon"></i>
+                                                    <span class="list-opt-text">Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="attendance.html" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-user list-opt-icon"></i>
+                                                    <span class="list-opt-text">Attendance</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt active-menu-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-pencil-square-o list-opt-icon"></i>
+                                                    <span class="list-opt-text">Marks Memo</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-star list-opt-icon"></i>
+                                                    <span class="list-opt-text">Feedback</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-file-video-o list-opt-icon"></i>
+                                                    <span class="list-opt-text">Webinars</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-graduation-cap list-opt-icon"></i>
+                                                    <span class="list-opt-text">Exam time tables</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-table list-opt-icon"></i>
+                                                    <span class="list-opt-text">Class time tables</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-book list-opt-icon"></i>
+                                                    <span class="list-opt-text">Reading material</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-edit list-opt-icon"></i>
+                                                    <span class="list-opt-text">Online Exams</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-file-text list-opt-icon"></i>
+                                                    <span class="list-opt-text">Applications &amp Admissions</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-caret-square-o-right list-opt-icon"></i>
+                                                    <span class="list-opt-text">Web Tutorials</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-archive list-opt-icon"></i>
+                                                    <span class="list-opt-text">Suggestion Box</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-users list-opt-icon"></i>
+                                                    <span class="list-opt-text">Alumini Services</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-headphones list-opt-icon"></i>
+                                                    <span class="list-opt-text">Contact Support</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="header-institute-title" onclick="dashboardPage()" style="cursor: pointer;">DEMO INSTITUTE</span>
+                        <div class="header-menu-icons-group f-right">
+                            <i class="f-icon fa fa-envelope-o fa-fw envelope-icon"></i>
+                            <i class="f-icon fa fa-user user-icon"></i>
+                        </div>
+                   </div>
+                </div>
+                <div class="marks-search-page-body-contents">
+                    <div class="user-opt-btn cursor" id="marks-view-btn">
+                        View Marks
+                    </div>
+                    <div class="marks-search-option-info-group">
+                        <div class="select-opt-group row">
+                            <div class="select-opts col-xs-6 col-md-6">
+                                <div class="innner-row">
+                                    <div class="select-label">
+                                        Subject
+                                    </div>
+                                    <select name="subject" class="select-box-dd" data-corners="false" id="subject-select">
+                                        <option value="">Select Subject</option>
+                                    </select>
+                                </div>
+                                <!-- <span class="select-box f-right cursor">
+                                    <input type="text" class="input-text" id="subject-select">
+                                    <span class="select-arrow-down"></span>
+                                </span> -->
+                            </div>
+                            <div class="select-opts col-xs-6 col-md-6">
+                                <div class="innner-row row">
+                                    <div class="select-label">
+                                        Exam
+                                    </div>
+                                    <select name="subject" class="select-box-dd" data-corners="false" id="exam-select">
+                                        <option value="">Select Exam</option>
+                                    </select>
+                                </div>
+                                <!-- <span class="select-label f-left">Exam</span>
+                                <span class="select-box f-right cursor">
+                                    <input type="text" class="input-text" id="exam-select">
+                                    <span class="select-arrow-down"></span>
+                                </span> -->
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="result-group">
+                        <div class="result-input-opt">
+                            <span class="result-input-label">Marks</span>
+                            <input type="text" class="input-text" id="marks-iput">
+                        </div>
+                        <div class="result-input-opt">
+                            <span class="result-input-label">Marks</span>
+                            <input type="text" class="input-text" id="result-iput">
+                            <span class="result-search-btn cursor">
+                                Search
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="common-footer-for-all-page">
+                    <span class="powered-by-text">Powered by Affluenze</span>
+                    <span class="footer-icon-group f-right">
+                        <i class="f-icon fa fa-facebook-square fa-fw"></i>
+                        <i class="f-icon fa fa-twitter-square"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

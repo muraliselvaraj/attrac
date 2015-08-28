@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+        <title>Attrac</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../css/style.css">
+        <script src="../../js/vendor/underscore.js"></script>
+        <script src="../../js/vendor/jquery-1.11.3.js"></script>
+        <script src="../../js/vendor/bootstrap.js"></script>
+        <script type="text/javascript" src="../../js/vendor/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="../../js/vendor/jquery.mobile-1.4.5.js"></script>
+        <script type="text/javascript" src="../../js/main.js"></script>
+        <script type="text/javascript" src="../../js/faculty.js"></script>
+    </head>
+    <body>
+        <script type="text/template" id="select-options-tpl">
+            <option value="<%= value %>"><%= name %></option>
+        </script>
+        <script type="text/template" id="section-and-subject-selection-tpl">
+            <div class="upload-opt-section-data-group">
+                <div class="select-option-group faculty-datetime-select-box-dd">
+                    <span class="faculty-select-label">Section</span>
+                    <div class="input-group">
+                        <input type="text" class="faculty-input-section-box" data-corners="false" id="class-section-val" value="1" readonly>
+                    </div>
+                </div>
+                <div class="select-option-group faculty-datetime-select-box-dd">
+                    <span class="faculty-select-label">Subject</span>
+                    <div class="input-group">
+                        <input type="text" class="faculty-input-section-box" data-corners="false" id="class-subject-val" value="Mathematics" readonly>
+                    </div>
+                </div>
+                <div class="select-option-group faculty-datetime-select-box-dd">
+                    <span class="faculty-select-label">Date</span>
+                    <div class="input-group-date-time">
+                        <input type="text" class="faculty-input-section-box" data-corners="false" id="class-date-val" value="<%= date %>" readonly>
+                    </div>
+                    <span class="faculty-select-label">Time</span>
+                    <div class="input-group-date-time">
+                        <input type="text" class="faculty-input-section-box" data-corners="false" id="class-time-val" value="11:30 AM" readonly>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <script type="text/template" id="section-and-subject-view-tpl">
+            <div class="upload-opt-section-data-group">
+                <div class="select-option-group faculty-datetime-select-box-dd">
+                    <span class="faculty-select-label">Section</span>
+                    <div class="input-group">
+                        <input type="text" class="faculty-input-section-box" data-corners="false" id="class-section-val" value="1" readonly>
+                    </div>
+                </div>
+                <div class="select-option-group faculty-datetime-select-box-dd">
+                    <span class="faculty-select-label">Subject</span>
+                    <div class="input-group">
+                        <input type="text" class="faculty-input-section-box" data-corners="false" id="class-subject-val" value="Mathematics" readonly>
+                    </div>
+                </div>
+                <div class="select-option-group faculty-datetime-select-box-dd">
+                    <span class="faculty-select-label">Date</span>
+                    <div class="input-group-date-time">
+                        <input type="text" class="faculty-input-section-box" data-corners="false" id="class-date-val" value="19/12/2015" readonly>
+                    </div>
+                    <span class="faculty-select-label">Time</span>
+                    <div class="input-group-date-time">
+                        <input type="text" class="faculty-input-section-box" data-corners="false" id="class-time-val" value="11:30 AM" readonly>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <script type="text/template" id="student-attendance-table-tpl">
+            <div class="student-attendance-details-container">
+                <div class="table-height-container">
+                    <table class="attendance-upload-view-table">
+                        <thead class="upload-view-attendance-header">
+                            <tr>
+                                <th>Roll no.</th>
+                                <th>Name</th>
+                                <th>Absent</th>
+                            </tr>
+                        </thead>
+                        <tbody class="upload-view-attendance-body">
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr><tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>01</td>
+                                <td>XXXXXXXX X</td>
+                                <td>
+                                    <span class="upload-checkbox-icon">
+                                       <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon" onclick="changeCircle(this)"></i> 
+                                       <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon" onclick="changeCircle(this)" style="color: #c71515;display: none;"></i> 
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="hours-select-opts">
+                    <span class="faculty-hour-label">Number of hours</span>
+                    <select name="hours" class="faculty-hour-select-box-dd" data-corners="false" id="faculty-hours-select">
+                        <option value="1">1 hour</option>
+                    </select>
+                </div>
+            </div>
+        </script>
+        <div data-role="page" class="" id="faculty-upload-attendance-page">
+            <div data-role="content" class="ui-content user-page-contents container-fluid logged-user-page-body-contents">
+                <div class="common-header-bar">
+                   <div class="common-header-bar-content">
+                	    <a href="#left-menu-panel">
+                            <i id="horizontal-bars" class="fa fa-bars fa-fw header-menu-icon"></i>
+                        </a>
+                        <div data-role="panel" id="left-menu-panel" data-position="left" data-display="overlay">
+                            <div class="left-menu-panel-group">
+                                <div class="user-details-content" style="background: url(../../img/avatar1.png) no-repeat;background-size: 100%;">
+                                    <div class="back-cover-color"></div>
+                                    <div class="user-profile-info">
+                                        <div class="profile-pic">
+                                            <img src="../../img/avatar1.png" alt="">
+                                        </div>
+                                        <div class="profile-user-data">
+                                            <span class="logged-user-name">XXXXXXXXX X X</span>
+                                            <div class="panel-user-opt-box">
+                                                <span class="logged-user-institue">Institute Name Institute</span>
+                                                <span class="user-opt-arrow-down"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="user-various-opt-lists">
+                                    <div class="list-opt-container">
+                                        <ul class="list-options">
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-cog list-opt-icon"></i>
+                                                    <span class="list-opt-text">Manage Classes</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="../../dashboard.html" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-th list-opt-icon"></i>
+                                                    <span class="list-opt-text">Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt active-menu-opt">
+                                                <a href="../../attendance.html" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-user list-opt-icon"></i>
+                                                    <span class="list-opt-text">Attendance</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-pencil-square-o list-opt-icon"></i>
+                                                    <span class="list-opt-text">Marks Memo</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-star list-opt-icon"></i>
+                                                    <span class="list-opt-text">Feedback</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-file-video-o list-opt-icon"></i>
+                                                    <span class="list-opt-text">Webinars</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-graduation-cap list-opt-icon"></i>
+                                                    <span class="list-opt-text">Exam time tables</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-table list-opt-icon"></i>
+                                                    <span class="list-opt-text">Class time tables</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-book list-opt-icon"></i>
+                                                    <span class="list-opt-text">Reading material</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-edit list-opt-icon"></i>
+                                                    <span class="list-opt-text">Online Exams</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-file-text list-opt-icon"></i>
+                                                    <span class="list-opt-text">Applications &amp Admissions</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-caret-square-o-right list-opt-icon"></i>
+                                                    <span class="list-opt-text">Web Tutorials</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-archive list-opt-icon"></i>
+                                                    <span class="list-opt-text">Suggestion Box</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-users list-opt-icon"></i>
+                                                    <span class="list-opt-text">Alumini Services</span>
+                                                </a>
+                                            </li>
+                                            <li class="list-opt">
+                                                <a href="javascript:" class="list-opt-grp">
+                                                    <i class="f-icon fa fa-headphones list-opt-icon"></i>
+                                                    <span class="list-opt-text">Contact Support</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                		<!-- <i id="cross-bars" class="fa fa-times fa-fw"></i> -->
+                      <!-- <div class="menu-bar-icon-group">
+                      	<span class="menu-bar-line"></span>
+                      	<span class="menu-bar-line"></span>
+                      	<span class="menu-bar-line"></span>
+                      </div> -->
+                        <span class="header-institute-title" onclick="dashboardPage()" style="cursor: pointer;">DEMO INSTITUTE</span>
+                        <div class="header-menu-icons-group f-right">
+                            <i class="f-icon fa fa-envelope-o fa-fw envelope-icon"></i>
+                            <i class="f-icon fa fa-user user-icon"></i>
+                        </div>
+                   </div>
+                </div>
+                <div class="faculty-upload-page-body-contents">
+                    <div class="faculty-upload-opt-box">
+                        <div class="upload-opt-header">
+                            <span class="upload-bolt-icon">
+                               <i class="f-icon fa fa-bolt fa-fw"></i>
+                            </span>
+                            <span class="header-txt">Upload Attendance</span>
+                        </div>
+                        <div class="upload-opt-body">
+                            <div class="upload-opt-select-group">
+                                <div class="upload-opt-container-section">
+                                    <div class="upload-options-group-container">
+                                        <div class="select-option-group">
+                                            <span class="faculty-select-label">Class</span>
+                                            <select name="class" class="faculty-class-select-box-dd" data-corners="false" id="faculty-class-select" onchange="checkAttendanceExist()">
+                                            
+                                            </select>
+                                        </div>
+                                        <div class="upload-checkbox-circle">
+                                            <span class="upload-checkbox-icon">
+                                               <i class="f-icon fa fa-circle-thin fa-fw upload-checkbox-circle-thin circle-checkbox-icon attendance-taken-circle"></i> 
+                                               <i class="f-icon fa fa-circle fa-fw upload-checkbox-circle-fill circle-checkbox-icon attendance-not-taken-circle" style="color: #0071bd;display: none;"></i> 
+                                            </span>
+                                            <span class="checkbox-txt">Class not taken at prescribed time</span>
+                                        </div>
+                                        <div class="select-option-group faculty-datetime-select-box-dd">
+                                            <span class="faculty-select-label">Date</span>
+                                            <div class="input-group input-group-date">
+                                                <input type="text" class="faculty-input-select-box-dd input-datepicker-opt" data-corners="false" id="faculty-date-select">
+                                                <span class="arrow-down-pointer"></span>
+                                            </div>
+                                        </div>
+                                        <div class="select-option-group faculty-datetime-select-box-dd">
+                                            <span class="faculty-select-label">Hour</span>
+                                            <div class="input-group input-group-time">
+                                                <input type="time" class="faculty-input-select-box-dd" data-corners="false" id="faculty-time-select">
+                                                <span class="arrow-down-pointer"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="upload-opt-btn-group">
+                        <div class="btn-opts">
+                            <span class="upload-cancel-btn">CANCEL</span>
+                            <span class="upload-done-btn" onclick="getStudentsList()">DONE</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="common-footer-for-all-page">
+                    <span class="powered-by-text">Powered by Affluenze</span>
+                    <span class="footer-icon-group f-right">
+                        <i class="f-icon fa fa-facebook-square fa-fw"></i>
+                        <i class="f-icon fa fa-twitter-square"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script>
+            // var tpl1 = _.template($('#class-and-date-selection-tpl').html());
+            
+            $(document).ready(function(){
+                $(".input-datepicker-opt").datepicker({dateFormat: "dd/mm/yy"});
+                // $(".input-group-time").timepicker();
+                $(".input-group-date").click(function(evt){
+                   $(this).datepicker("show");
+                });
+            });
+            function changeCircle(ele){
+                if($(ele).hasClass('upload-checkbox-circle-thin')){
+                    $(ele).parent().find('.upload-checkbox-circle-fill').show();
+                    $(ele).hide();
+                } else if($(ele).hasClass('upload-checkbox-circle-fill')){
+                    $(ele).parent().find('.upload-checkbox-circle-thin').show();
+                    $(ele).hide();
+                }
+            }
+        </script>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

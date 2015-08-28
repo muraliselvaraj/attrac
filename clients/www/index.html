@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Attrac</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/vendor/underscore.js"></script>
+        <script src="js/vendor/jquery-1.11.3.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.mobile-1.4.5.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body>
+        <script type="text/template" id="dropdown-options">
+            <option value="<%= name %>"><%= name %></option>
+        </script>
+        <script type="text/template" id="dummy-select-option">
+        	<option value="" selected><%=dummyName%></option>
+        </script>
+        <div data-role="page" class="" id="index">
+            <div data-role="content" class="ui-content page-contents container">
+                <div class="attrac-content">
+                    <div class="attrac-header-logo">
+                    	<img src="img/attrac-logo.png" alt="">
+                    </div>
+                    <div class="select-elements">
+                        <div class="location-dd">
+                            <select name="select-choice-0" id="location-select-menu" data-corners="false" class="location-drop-down" onchange="renderInstitutes()">
+                                <option value="" selected>Location</option>
+                            </select>
+                        </div>
+                        <div class="institution-dd">
+                            <select name="" id="institution-select-menu" data-corners="false" class="institution-drop-down" disabled> <!--data-native-menu="false" -->
+                                <option value="" selected>Institute</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <script>
+            (function(){
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://attrac.in/api/colleges_details'
+                }).done(function(response) {
+                    // console.log(response);
+                    collegeDetails = response.details;
+                    appendLocations();
+                });
+            })();
+        </script>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

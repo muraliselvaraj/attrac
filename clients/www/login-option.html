@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Attrac</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/vendor/underscore.js"></script>
+        <script src="js/vendor/jquery-1.11.3.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.mobile-1.4.5.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body>
+        <div data-role="page" class="" id="login-option">
+            <div data-role="content" class="ui-content page-contents container">
+                <div class="attrac-content">
+                    <div class="attrac-header-logo">
+                    	<img src="img/attrac-logo.png" alt="">
+                    </div>
+                    <div class="user-login-options">
+                        <h1 class="login-btn-header">Login</h1>
+                        <div class="user-login-opt-btn" id="login-student-btn" name="student" onclick="userType(this)">
+                            Student
+                        </div>
+                        <div class="user-login-opt-btn" id="login-faculty-btn" name="faculty" onclick="userType(this)">
+                            Faculty
+                        </div>
+                        <div class="user-login-opt-btn" id="login-parent-btn" name="guardian" onclick="userType(this)">
+                            Parent / Guadian
+                        </div>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>
